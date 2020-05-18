@@ -1,5 +1,5 @@
 # Grupo_OndasEM
-Repositório para os trabalhos de Ondas Eletromagnéticas
+Repositório para os trabalhos de Ondas Eletromagnéticas.
 
 Integrantes:
 
