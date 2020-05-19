@@ -6,7 +6,7 @@ R = 0;
 G = 0;
 L = 252e-3;#valor p teste
 C = 101e-6;#valor p teste
-#valores  de L e C muito pequenos usam muita memoria ( ~ 1e-5 ou menores), matriz linha 43
+#valores de L e C muito pequenos usam muita memoria ( ~ 1e-5 ou menores), matriz linha 43
 c = 1/sqrt(L*C);
 
 l = 20;  # comprimento da linha, valor p teste
