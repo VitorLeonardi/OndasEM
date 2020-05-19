@@ -1,5 +1,5 @@
 Rl = [inf,0,100]; #resistencia da carga
-Rs = 45; #resistencia fonte
+Rs = 75; #resistencia fonte
 
 Z0 = 50 ; #resistencia da linha
 R = 0;
