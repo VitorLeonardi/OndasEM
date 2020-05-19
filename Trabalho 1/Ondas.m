@@ -4,16 +4,17 @@ Rs = 45; #resistencia fonte
 Z0 = 50 ; #resistencia da linha
 R = 0;
 G = 0;
-L = 252e-3;
-C = 101e-6;
-
+L = 252e-3;#valor p teste
+C = 101e-6;#valor p teste
+#valores muito pequenos usam muita memoria ( ~ 1e-5 ou menores), matriz linha 43
 c = 1/sqrt(L*C);
 
-l = 20;  # comprimento da linha
-T = l/(0.9*3e+2) ; #tempo limite
+l = 20;  # comprimento da linha, valor p teste
+T = l/(0.9*3e+2) ; #tempo limite, valor p teste
 
-dz = 1e-2;
-dt = dz/(2*c);
+dz = 1e-2; #valor p teste
+dt = dz/(2*c); #valor p teste
+
 z = -l:dz:0;
 t = 0:dt:T;
 
@@ -36,7 +37,7 @@ function y = Vs1(t)
 endfunction
 
 function y = Vs2(t,l)
-  y = u(t) - u(t - l/(27e+8));
+  y = u(t) - u(t - l/(27e+8));# valor p teste
 endfunction
 
 i = v = zeros( length(t) , length(z) );
@@ -68,18 +69,18 @@ i(n,k) -> i(n+1/2,k)
 v(n,k) -> v(n,k+1/2)
 #}
 
-tic
 
 for n = 2:length(t)
   #i(2,1)= ;
   #v(2,1)= ;
-  
+  # codigo vetorizado, muito mais rápido
   i(n,2:Lz-1) = c1*(v(n-1,2:Lz-1) - v(n-1,1:Lz-2)) + c2*i(n-1,2:Lz-1); 
   v(n,2:Lz-1) = c3*(i(n,3:Lz) - i(n,2:Lz-1)) + c4*v(n-1,2: Lz-1);    
   
 endfor
-toc
-for n = 1:(length(t)/50)
+
+# apenas alguns valores são plotados, muito mais rápido 
+for n = 1:(length(t)/50)#um em cada 50, valor p teste
   subplot(2,1,1);
   plot(z,i(50*n,:));
   xlabel("z");
