@@ -66,7 +66,7 @@ v(n,k) -> v(n,k+1/2)
 
 
 #equacoes 5 e 6a formam um sistema linear para i(n,1) e v(n,1)
-#A*r = b, r(i,v)
+#A*r = b, r(i,v), eu n tenho ideia se isso funciona
 A = zeros(2);
 b = zeros(2,1);
 A(1,1)  = 1;
