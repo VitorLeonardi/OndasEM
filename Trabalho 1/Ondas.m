@@ -65,11 +65,11 @@ v(n,k) -> v(n,k+1/2)
 
 
 for n = 2:length(t);
-   for k = 2:lengt(z);
+   for k = 2:length(z);
      i(2,k) = c1*(v(1,k) - v(1,k-1)) + c2*i(1,k); 
   endfor
   
-  for k = 2:lengt(z);
+  for k = 2:length(z);
      v(2,k) = c3*(i(2,k+1) - i(2,k)) + c4*v(1,k);    
   endfor
   
