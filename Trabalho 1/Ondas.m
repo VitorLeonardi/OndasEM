@@ -3,14 +3,15 @@ Rs = 45; #resistencia fonte
 Z0 = 50 ; #resistencia da linha
 c = 3e+8; #velocidade da luz
 uf = 0.9*c #velocidade de propagacao do sinal
-#valores acima danos na descricao do projeto
+#valores acima dados na descricao do projeto
 
 l = 10;  # comprimento da linha, valor p teste
 T = 10*l/uf  #tempo limite,dado na descricao do projeto
 
+#linha sem perdas
 R = 0;
 G = 0;
-L = Z0/uf # Z0 = L* Uf
+L = Z0/uf # Z0 = L* Uf, Uf = 1/sqrt(L*C)
 C = L/Z0**2 # Z0 = sqrt(L/C)
 
 dz = 1e-2; #valor p teste
