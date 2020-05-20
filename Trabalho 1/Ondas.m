@@ -2,7 +2,7 @@ Rl = [inf,0,100]; #resistencia da carga
 Rs = 75; #resistencia fonte
 Z0 = 50 ; #resistencia da linha
 c = 3e+8; #velocidade da luz
-uf = 0.9*c #velocidade de propagacao do sinal
+uf = 0.9*c; #velocidade de propagacao do sinal
 #valores acima na descricao do projeto 
 
 l = 1;  # comprimento da linha, valor p teste
@@ -11,7 +11,7 @@ T = 10*l/uf;  #tempo limite, na decricao do projeto
 R = 0;
 G = 0;
 L = Z0/uf; #Z0 = L* Uf
-C = L/Z0**2 #Z0 = sqrt(L/C)
+C = L/Z0**2; #Z0 = sqrt(L/C)
 #L e C sao derivados de uf e Z0
 
 dz = 1e-2; #valor p teste
