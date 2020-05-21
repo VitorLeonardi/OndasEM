@@ -58,13 +58,10 @@ tic
 for n = 2:Lt
   #equacao de update
   #codigo vetorizado, muito mais rapido
-  
+  #faltam as condicoes de fronteira
   i(n,2:Lz-1) = c1*(v(n-1,2:Lz-1) - v(n-1,1:Lz-2)) + c2*i(n-1,2:Lz-1); 
   v(n,2:Lz-1) = c3*(i(n,3:Lz) - i(n,2:Lz-1)) + c4*v(n-1,2: Lz-1);    
   
-  #condicoes de fronteira k = K
-  #v(n,Lz) = k3*v(n-1,Lz) + k4*i(n,Lz-1);
-  #i(n,Lz) = v(n,Lz)/Rl(3);#ainda n sei fazzer isso
 endfor
 toc
 
