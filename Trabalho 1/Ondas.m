@@ -62,13 +62,14 @@ v(n,k) -> v(n,k+1/2)
 #tic toc mede o tempo gasto
 tic 
 for n = 2:Lt
-  i(n,1) = Vs((n-1/2)*dt,1)/Rs - C*dz/(2*dt)(v(n+1,1)- v(n,1)) - v(n,1)/Rs;
-  v(n,1) = (k1/k2)*v(n-1,1) - (Rs*i(n-1,1) - (Vs(n*dt,1) + Vs((n-1)*dt,1))/2)/k2;
+  #condicoes de fronteira
+  i(n,1) = Vs((n-1/2)*dt,1)/Rs - C*dz/(2*dt)(v(n+1,1)- v(n,1)) - v(n,1)/Rs; 
+  v(n+1,1) = (k1/k2)*v(n,1) - (Rs*i(n-1,1) - (Vs(n*dt,1) + Vs((n-1)*dt,1))/2)/k2;
+  
   #equacao de update
   #codigo vetorizado, muito mais rapido
-  
-  i(n,2:Lz-1) = c1*(v(n-1,2:Lz-1) - v(n-1,1:Lz-2)) + c2*i(n-1,2:Lz-1); 
-  v(n,2:Lz-1) = c3*(i(n,3:Lz) - i(n,2:Lz-1)) + c4*v(n-1,2: Lz-1);    
+  i(n,2:Lz-1) = c1*(v(n,2:Lz-1) - v(n,1:Lz-2)) + c2*i(n-1,2:Lz-1); #i(n+1/2)
+  v(n+1,2:Lz-1) = c3*(i(n,3:Lz) - i(n,2:Lz-1)) + c4*v(n,2: Lz-1); #v(n+1)   
   
   #condicoes de fronteira k = K
   #circuito aberto
