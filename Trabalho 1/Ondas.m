@@ -63,7 +63,7 @@ v(n,k) -> v(n,k+1/2)
 tic 
 for n = 2:Lt
   #condicoes de fronteira
-  i(n,1) = Vs((n-1/2)*dt,1)/Rs - C*dz/(2*dt)(v(n+1,1)- v(n,1)) - v(n,1)/Rs; 
+  i(n,1) = Vs((n-1/2)*dt,1)/Rs - C*dz/(2*dt)*(v(n+1,1)- v(n,1)) - v(n,1)/Rs; 
   v(n+1,1) = (k1/k2)*v(n,1) - (Rs*i(n-1,1) - (Vs(n*dt,1) + Vs((n-1)*dt,1))/2)/k2;
   
   #equacao de update
