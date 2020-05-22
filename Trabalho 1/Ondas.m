@@ -55,11 +55,10 @@ for n = 2:Lt
   v(n,1) = (k1/k2)*v(n-1,1) - (Rs*i(n,1) - (Vs((n+1/2)*dt,2,uf) + Vs((n-1/2)*dt,2,uf))/2)/k2;
   #equacao de update
   #codigo vetorizado, muito mais rapido, linha sem perdas ,Gedney p43
-  v(n,2:Lz-1) = v(n-1,2:Lz-1) - dt*(i(n,2:Lz-1) - i(n,1:Lz-2))/(C*dz);
+  v(n,2:Lz) = v(n-1,2:Lz) - dt*(i(n,2:Lz) - i(n,1:Lz-1))/(C*dz);
   i(n+1,1:Lz-1) = i(n,1:Lz-1) - dt*(v(n,2:Lz)-v(n,1:Lz-1))/(L*dz);
   #condicoes de fronteira k = K
-  v(n,Lz) = (k1*v(n-1,Lz) - Rl(1)*v(n,Lz-1))/k2;
-  i(n+1,Lz) = v(n,Lz)/Rl(1);
+  i(n+1,Lz) = v(n,Lz)/Rl(3);
 endfor
 toc
 
