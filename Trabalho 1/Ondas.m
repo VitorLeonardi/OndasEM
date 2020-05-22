@@ -57,7 +57,7 @@ for n = 2:Lt
   #codigo vetorizado, muito mais rapido, linha sem perdas ,Gedney p43
   v(n,2:Lz) = v(n-1,2:Lz) - dt*(i(n,2:Lz) - i(n,1:Lz-1))/(C*dz);
   i(n+1,1:Lz-1) = i(n,1:Lz-1) - dt*(v(n,2:Lz)-v(n,1:Lz-1))/(L*dz);
-  #condicoes de fronteira k = K
+ #i(n+1,Lz) = i(n+1,Lz-1) e v(n,Lz) = 0 pra Rl = 0
   i(n+1,Lz) = v(n,Lz)/Rl(3);
 endfor
 toc
