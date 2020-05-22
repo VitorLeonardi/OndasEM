@@ -1,4 +1,4 @@
-Rl = [inf,0,50]; #resistencia da carga
+Rl = [inf,0,100]; #resistencia da carga
 Rs = 75; #resistencia fonte
 Z0 = 50 ; #resistencia da linha
 c = 3e+8; #velocidade da luz
