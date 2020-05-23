@@ -11,9 +11,8 @@ function y = Vs(t,m,uf,l)
 endfunction
 
 
-RL = Rl(2);# RL = Rl(1),Rl(2),Rl(3)
-m = 1;#modo Vs m=1,2
-#
+RL = Rl(2);# RL = Rl(1), Rl(2), Rl(3)
+m = 1;#modo Vs m = 1, 2
 
 
 Rs = 75; #resistencia fonte
@@ -73,7 +72,7 @@ V = v(1,:);
 I = i(1,:);
 subplot(2,1,1);
 plot (z, V,'ydatasource','V');
-title('tens„o');
+title('tens√£o');
 xlabel("z (m)");
 ylabel("v (V)");
 axis([-l 0 min(min(v)) max(max(v))]);
