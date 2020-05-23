@@ -1,3 +1,8 @@
+r = inputdlg('Entre resistencia da carga (Rl): inf , 0, 100','Sample',[1 5]);
+K = inputdlg('Entre Vs(t): 1:Vs(t) = 2*u(t);2:  Vs(t) = u(t) - u(t - l/(10*uf))','Sample',[1 5]);#modo Vs m=1,2
+Rl = str2num(r{1});
+m = str2num(K{1});
+
 Rl = [inf,0,100]; #resistencia da carga
 #funcoes para tensao da fonte
 function y = Vs(t,m,uf,l)
@@ -58,16 +63,16 @@ for n = 2:Lt
   #v(n,Lz) = (k1/k2)*v(n-1,Lz) + Rl(3)*i(n,Lz-1)/k2;
   #v(n,Lz) = v(n-1,Lz) - 2*dt*(i(n,Lz) - i(n,Lz-1))/(C*dz);
   #i(n+1,Lz) = i(n+1,Lz-1) e v(n,Lz) = 0 pra Rl = 0
-  if (RL == 0)
+  if (Rl == 0)
     v(n,Lz) = 0;
     i(n+1,Lz) = i(n+1,Lz-1);
   else
-    i(n+1,Lz) = v(n,Lz)/RL;
+    i(n+1,Lz) = v(n,Lz)/Rl;
   endif
 endfor
 toc
 
-figure('Name',['Rl = ',num2str(RL),', m = ', num2str(m)],'NumberTitle','off');
+figure('Name',['Rl = ',num2str(Rl),', m = ', num2str(m)],'NumberTitle','off');
 V = v(1,:);
 I = i(1,:);
 subplot(2,1,1);
