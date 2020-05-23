@@ -5,14 +5,14 @@ c = 3e+8; #velocidade da luz
 uf = 0.9*c; #velocidade de propagacao do sinal
 #valores acima na descricao do projeto 
 
-l = 1;  # comprimento da linha, valor p teste
-T = 4*l/uf;  #tempo limite, na decricao do projeto 
+l = 10;  # comprimento da linha, valor p teste
+T = 10*l/uf;  #tempo limite, na decricao do projeto 
 
 L = Z0/uf; #Z0 = L* Uf
 C = L/Z0**2; #Z0 = sqrt(L/C)
 #L e C sao derivados de uf e Z0
 
-dz = 1e-3; #valor p teste
+dz = l/2500; #valor p teste
 z = -l:dz:0;
 
 dt = dz/(2*uf); #valor p teste, dt<dz/uf
@@ -44,8 +44,8 @@ k1 = 0.5*(Rs*C*dz/(2*dt)-1);
 k2 = 0.5*(Rs*C*dz/(2*dt)+1);
 
 #{
-i(n,k) -> i(n,k+1/2)
-v(n,k) -> v(n+1/2   ,k)
+i(n,k) -> i(n, k+1/2)
+v(n,k) -> v(n+1/2, k)
 #}
 
 #tic toc mede o tempo gasto
@@ -57,8 +57,13 @@ for n = 2:Lt
   #codigo vetorizado, muito mais rapido, linha sem perdas ,Gedney p43
   v(n,2:Lz) = v(n-1,2:Lz) - dt*(i(n,2:Lz) - i(n,1:Lz-1))/(C*dz);
   i(n+1,1:Lz-1) = i(n,1:Lz-1) - dt*(v(n,2:Lz)-v(n,1:Lz-1))/(L*dz);
- #i(n+1,Lz) = i(n+1,Lz-1) e v(n,Lz) = 0 pra Rl = 0
-  i(n+1,Lz) = v(n,Lz)/Rl(3);
+  
+  if (Rl(3) == 0)
+    v(n,Lz) = 0;
+    i(n+1,Lz) = i(n+1,Lz-1);
+  else
+    i(n+1,Lz) = v(n,Lz)/Rl(3);
+  endif
 endfor
 toc
 
@@ -79,10 +84,12 @@ w = waitbar(0,'time');
 # plotar apenas alguns valores para guanho de performance
 
 tic
-for n = 1:Lt#Lt/M para plotar 1 a cada M tempos,x = v(M*n,:),y = i(M*n,:) 
-  I = i(n,:);
-  V = v(n,:);
-  waitbar(n/Lt,w,'time');
+for n = 1:Lt/15#Lt/M para plotar 1 a cada M tempos,x = v(M*n,:),y = i(M*n,:) 
+  I = i(15*n,:);
+  V = v(15*n,:);
+  if (mod(n,50) == 0)# atualiza a barra 1 vez cada 50 n
+    waitbar(20*n/Lt,w,'Time');
+  endif
   refreshdata
   drawnow
 endfor
