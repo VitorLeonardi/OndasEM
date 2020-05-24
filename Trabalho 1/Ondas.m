@@ -28,9 +28,9 @@ L = Z0/uf; #Z0 = L* Uf
 C = L/Z0**2; #Z0 = sqrt(L/C)
 #L e C sao derivados de uf e Z0
 
-dz = Z/1000;
+dz = Z/1500;
 z = -Z:dz:0;
-dt = dz/(2*uf); # dt < dz/uf
+dt = dz/(1.2*uf); # dt < dz/uf
 t = 0:dt:T;
 Lz = length(z);
 Lt = length(t);
