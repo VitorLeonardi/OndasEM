@@ -1,5 +1,5 @@
-Rl = inputdlg('Entre resistência da carga: ','Sample',[1 5]);
-m = inputdlg('Entre tensão da fonte','Sample',[1 5]);#modo Vs m=1,2
+Rl = inputdlg('Entre resistÃªncia da carga: ','Sample',[1 5]);
+m = inputdlg('Entre tensÃ£o da fonte','Sample',[1 5]);#modo Vs m=1,2
 p = inputdlg('dz = Z/p ,p = ','Sample',[1 5]);
 Rl = str2num(Rl{1});
 m = str2num(m{1});
@@ -32,7 +32,6 @@ C = L/Z0**2; #Z0 = sqrt(L/C)
 
 dz = Z/p; #valor p teste
 z = -Z:dz:0;
-2
 dt = dz/(2*uf); #valor p teste, dt<dz/uf
 t = 0:dt:T;
 Lz = length(z)
@@ -76,7 +75,7 @@ V = v(1,:);
 I = i(1,:);
 subplot(2,1,1);
 plot (z, V,'ydatasource','V');
-title('tensão');
+title('tensÃ£o');
 xlabel("z (m)");
 ylabel("v (V)");
 axis([-Z 0 min(min(v)) max(max(v))]);
