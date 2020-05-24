@@ -102,3 +102,4 @@ endfor
 s = num2str(M*n*dt);
 waitbar(1,w,['Finalizado ','t = ',s,'s']);
 toc
+clear
