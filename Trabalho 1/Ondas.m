@@ -1,9 +1,8 @@
 Rl = inputdlg('Entre resistência da carga: ','Sample',[1 5]);
 m = inputdlg('Entre tensão da fonte','Sample',[1 5]);#modo Vs m=1,2
-p = inputdlg('dz = Z/p ,p = ','Sample',[1 5]);
 Rl = str2num(Rl{1});#resistencia da carga
 m = str2num(m{1});#modo da fonte de tensão (1 ou 2)
-p = str2num(p{1});#precisao
+
 
 #funcao para tensao da fonte
 function y = Vs(t,m,uf,Z)
@@ -29,7 +28,7 @@ L = Z0/uf; #Z0 = L* Uf
 C = L/Z0**2; #Z0 = sqrt(L/C)
 #L e C sao derivados de uf e Z0
 
-dz = Z/p;
+dz = Z/1000;
 z = -Z:dz:0;
 dt = dz/(2*uf); # dt < dz/uf
 t = 0:dt:T;
@@ -88,7 +87,7 @@ axis([-Z 0 min(min(i)) max(max(i))]);
 w = waitbar(0,'t = 0s');
 
 #plot 1 a cada M, mais rapido e pouca perda de fidelidade visual, depende da precisao
-M = round(p/100); 
+M = 10; 
 for n = 1:Lt/M 
   I = i(M*n,:);
   V = v(M*n,:);
