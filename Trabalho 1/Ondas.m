@@ -1,7 +1,7 @@
-Rl = inputdlg('Entre resistÍncia da carga: ','Sample',[1 5]);
-m = inputdlg('Entre tens„o da fonte','Sample',[1 5]);#modo Vs m=1,2
+Rl = inputdlg('Entre resist√™ncia da carga: ','Sample',[1 5]);
+m = inputdlg('Entre tens√£o da fonte','Sample',[1 5]);#modo Vs m=1,2
 Rl = str2num(Rl{1});#resistencia da carga
-m = str2num(m{1});#modo da fonte de tens„o (1 ou 2)
+m = str2num(m{1});#modo da fonte de tens√£o (1 ou 2)
 
 #funcao para tensao da fonte
 function y = Vs(t,m,uf,Z)
@@ -21,7 +21,7 @@ uf = 0.9*c; #velocidade de propagacao do sinal
 #valores acima na descricao do projeto 
 
 Z = 10;  # comprimento da linha
-T = 8*Z/uf;  #tempo limite, na decricao do projeto 
+T = 10*Z/uf;  #tempo limite, na decricao do projeto 
 
 L = Z0/uf; #Z0 = L* Uf
 C = L/Z0**2; #Z0 = sqrt(L/C)
@@ -48,7 +48,7 @@ V = v(1,:);
 I = i(1,:);
 subplot(2,1,1);
 plot (z, V,'ydatasource','V');
-title('tens„o');
+title('tens√£o');
 xlabel("z (m)");
 ylabel("v (V)");
 axis([-Z 0 -0.6/m 1.1*m]);
@@ -60,12 +60,12 @@ ylabel("i (A)");
 axis([-Z 0 -0.012/m 0.02*m]);
 w = waitbar(0,'t = 0s');
 
-M = 150;
+M = 150;#1 em cada 150 tempos sao plotados, maior eficiencia
 for n = 2:Lt-1
   #condicao de fronteira z = -Z (fonte)
   v(2,1) = (k1/k2)*v(1,1) - (Rs*i(1,1) - (Vs((n+1/2)*dt,m,uf,Z) + Vs((n-1/2)*dt,m,uf,Z))/2)/k2;
   
-  #equacao de update tens„o
+  #equacao de update tens√£o
   #codigo vetorizado, linha sem perdas
   v(2,2:Lz-1) = v(1,2:Lz-1) - dt*(i(1,2:Lz-1) - i(1,1:Lz-2))/(C*dz);
   
