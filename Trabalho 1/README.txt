@@ -21,7 +21,7 @@ uf =  velocidade do sinal
   2500 	|    2000 MB	|		15,7 s		|
   3000	|    3100 MB	|		21,6 s		| (não recomendado, alto custo e melhoria negligível)	
   
-O tempo para apresentar a simulação em forma gráfica gira em torno de 40s a 1min, independentemente da precisão.
+O tempo para apresentar a simulação em forma gráfica é de aproximadamente 1min, independentemente da precisão.
 
 O programa gera um gráfico que mostra os valores de tensão e corrente em função da posição na linha de transmissão, 
 e uma barra de progresso, que mostra o progresso da simulação e o tempo da simulacao.
