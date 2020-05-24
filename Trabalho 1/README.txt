@@ -10,7 +10,8 @@ u(t) - função degrau
 Z = comprimento da linha
 uf =  velocidade do sinal
  
-"dz = Z/p ,p = " precisão, quanto maior mais preciso, porém mais lento e maior uso de memória
+"Entre a precisao: " Tamanho de dz em relacao ao tamanho da linha.
+Quanto maior mais preciso, porém mais lento e maior uso de memória
 
    p 	|Uso de memória | Tempo para calcular a malha	|
    100	|     116 MB	|		 0,2 s		| (não recomendado, baixa precisão)
