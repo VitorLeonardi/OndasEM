@@ -88,7 +88,7 @@ axis([-Z 0 min(min(i)) max(max(i))]);
 w = waitbar(0,'t = 0s');
 
 
-M = 20;#valor p teste
+M = round(p/100);#valor p teste
 for n = 1:Lt/M#Lt/M para plotar 1 a cada M tempos,x = v(M*n,:),y = i(M*n,:) 
   I = i(M*n,:);
   V = v(M*n,:);
