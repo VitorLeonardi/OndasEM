@@ -12,7 +12,7 @@ Código feito em Octave, não funciona no Matlab.
 
 Qualquer outro valor além de '1' ou '2' é considerado como '2'.
 
-O tempo para apresentar a simulação em forma gráfica é de aproximadamente 1min
+O tempo para apresentar a simulação é de aproximadamente 1min
 
 O programa gera um gráfico que mostra os valores de tensão e corrente em função da posição na linha de transmissão, 
 e uma barra de progresso, que mostra o progresso da simulação e o tempo da simulacao.
