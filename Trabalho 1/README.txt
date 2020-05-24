@@ -6,9 +6,11 @@ Código feito em Octave, não funciona no Matlab.
  1 - Vs(t) = u(t) - u(t - Z/(10*uf));
  2 - Vs(t) = 2*u(t);
   
-u(t) - função degrau
-Z = comprimento da linha
-uf =  velocidade do sinal
+ u(t) - função degrau
+ Z = comprimento da linha
+ uf =  velocidade do sinal
+
+Qulaquer outro valor além de '1' ou '2' é considerado como '2'.
 
 O tempo para apresentar a simulação em forma gráfica é de aproximadamente 1min
 
