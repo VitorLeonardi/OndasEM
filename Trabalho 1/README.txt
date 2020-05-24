@@ -1,4 +1,4 @@
-Código feito em Octave, não foi testado no Matlab.
+Código feito em Octave, não funciona no Matlab.
 
 "Entre resistência da carga:" Resistência da carga em ohm. '0' para curto circuito, 'inf' para infinito (circuito aberto).
 
