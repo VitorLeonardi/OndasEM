@@ -61,7 +61,6 @@ ylabel("i (A)");
 axis([-Z 0 -0.012/m 0.02*m]);
 w = waitbar(0,'t = 0s');
 
-tic
 M = 100; #1 em cada 100 tempos sao plotados, maior eficiência
 for n = 2:Lt-1
   #condição de fronteira z = -Z (fonte)
@@ -101,5 +100,4 @@ for n = 2:Lt-1
   endif
   
 endfor
-toc
 clear
