@@ -62,7 +62,7 @@ axis([-Z 0 -0.012/m 0.02*m]);
 w = waitbar(0,'t = 0s');
 
 tic
-M = 80;#1 em cada 80 tempos sao plotados, maior eficiência
+M = 100;#1 em cada 100 tempos sao plotados, maior eficiência
 for n = 2:Lt-1
   #condição de fronteira z = -Z (fonte)
   v(2,1) = (k1/k2)*v(1,1) - (Rs*i(1,1) - (Vs((n+1/2)*dt,m,uf,Z) + Vs((n-1/2)*dt,m,uf,Z))/2)/k2;
