@@ -3,8 +3,8 @@ Código feito em Octave, não funciona no Matlab.
 "Entre resistência da carga:" Resistência da carga em ohm. '0' para curto circuito, 'inf' para infinito (circuito aberto).
 
 "Entre tensão da fonte": Entrar '1' ou '2'
- 1 - Vs(t) = 2*u(t);
- 2 - Vs(t) = u(t) - u(t - Z/(10*uf));
+ 1 - Vs(t) = u(t) - u(t - Z/(10*uf));
+ 2 - Vs(t) = 2*u(t);
   
 u(t) - função degrau
 Z = comprimento da linha
