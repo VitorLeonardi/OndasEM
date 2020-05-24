@@ -1,14 +1,14 @@
 Rl = inputdlg('Entre resistência da carga: ','Sample',[1 5]);
-m = inputdlg('Entre tensão da fonte','Sample',[1 5]);#modo Vs m=1,2
-Rl = str2num(Rl{1});#resistencia da carga
-m = str2num(m{1});#modo da fonte de tensão (1 ou 2)
+m = inputdlg('Entre tensão da fonte','Sample',[1 5]);
+Rl = str2num(Rl{1}); #resistência da carga
+m = str2num(m{1}); #modo da fonte de tensão (1 ou 2)
 
-#qualqur valor diferente de 1 ou 2 é considerado 2
+#qualquer valor diferente de 1 ou 2 é considerado 2
 if (m != 1 && m != 2)
   m = 2;
 endif
 
-#funcao para tensao da fonte
+#função para tensão da fonte
 function y = Vs(t,m,uf,Z)
   if (m == 2);
     y = 2;
@@ -62,7 +62,7 @@ axis([-Z 0 -0.012/m 0.02*m]);
 w = waitbar(0,'t = 0s');
 
 tic
-M = 100;#1 em cada 100 tempos sao plotados, maior eficiência
+M = 100; #1 em cada 100 tempos sao plotados, maior eficiência
 for n = 2:Lt-1
   #condição de fronteira z = -Z (fonte)
   v(2,1) = (k1/k2)*v(1,1) - (Rs*i(1,1) - (Vs((n+1/2)*dt,m,uf,Z) + Vs((n-1/2)*dt,m,uf,Z))/2)/k2;
@@ -83,7 +83,6 @@ for n = 2:Lt-1
   endif  
   
   #equação de update corrente, linha sem perdas
-  
   i(2,1:Lz-1) = i(1,1:Lz-1) - dt*(v(2,2:Lz)-v(2,1:Lz-1))/(L*dz);
   
   v(1,:) = v(2,:);
