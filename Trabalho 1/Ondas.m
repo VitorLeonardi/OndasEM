@@ -16,7 +16,6 @@ function y = Vs(t,m,uf,Z)
   endif
 endfunction
 
-tic
 Rs = 75; #resistencia fonte
 Z0 = 50 ; #resistencia da linha
 c = 3e+8; #velocidade da luz
@@ -34,8 +33,8 @@ dz = Z/p; #valor p teste
 z = -Z:dz:0;
 dt = dz/(2*uf); #valor p teste, dt<dz/uf
 t = 0:dt:T;
-Lz = length(z)
-Lt = length(t)
+Lz = length(z);
+Lt = length(t);
 i = v = zeros( Lt , Lz );
 
 k1 = 0.5*(Rs*C*dz/dt - 1);
@@ -101,5 +100,4 @@ for n = 1:Lt/M#Lt/M para plotar 1 a cada M tempos,x = v(M*n,:),y = i(M*n,:)
 endfor
 s = num2str(M*n*dt);
 waitbar(1,w,['Finalizado ','t = ',s,'s']);
-toc
 clear
