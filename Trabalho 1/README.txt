@@ -9,20 +9,8 @@ Código feito em Octave, não funciona no Matlab.
 u(t) - função degrau
 Z = comprimento da linha
 uf =  velocidade do sinal
- 
-"Entre a precisao: " Tamanho de dz em relacao ao tamanho da linha.
-Quanto maior mais preciso, porém mais lento e maior uso de memória
 
-   p 	|Uso de memória | Tempo para calcular a malha	|
-   100	|     116 MB	|		 0,2 s		| (não recomendado, baixa precisão)
-   500	|     200 MB	|		 1,3 s		|
-  1000	|     400 MB	|		 3,6 s		| (recomendado, boa precisão e baixo uso de memória)
-  1500	|     800 MB	|		 6,8 s		|
-  2000	|    1350 MB	|		10,8 s		|
-  2500 	|    2000 MB	|		15,7 s		|
-  3000	|    3100 MB	|		21,6 s		| (não recomendado, alto custo e melhoria negligível)	
-  
-O tempo para apresentar a simulação em forma gráfica é de aproximadamente 1min, independentemente da precisão.
+O tempo para apresentar a simulação em forma gráfica é de aproximadamente 1min
 
 O programa gera um gráfico que mostra os valores de tensão e corrente em função da posição na linha de transmissão, 
 e uma barra de progresso, que mostra o progresso da simulação e o tempo da simulacao.
