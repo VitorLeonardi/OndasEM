@@ -61,7 +61,7 @@ ylabel("i (A)");
 axis([-Z 0 -0.012/m 0.02*m]);
 w = waitbar(0,'t = 0s');
 
-M = 100; #1 em cada 100 tempos sao plotados, maior eficiência
+
 for n = 2:Lt-1
   #condição de fronteira z = -Z (fonte)
   v(2,1) = (k1/k2)*v(1,1) - (Rs*i(1,1) - (Vs((n+1/2)*dt,m,uf,Z) + Vs((n-1/2)*dt,m,uf,Z))/2)/k2;
@@ -87,11 +87,11 @@ for n = 2:Lt-1
   v(1,:) = v(2,:);
   i(1,:) = i(2,:);
   
-  #atualiza o gráfico, 1 em cada M iterações, grande aumento em performance.
-  if ( mod(n,M) == 0) 
+  #atualiza o gráfico, 1 em cada 100 iterações, grande aumento em performance.
+  if ( mod(n,100) == 0) 
     I = i(1,:);
     V = v(1,:);
-    if (mod(n,10*M) == 0)
+    if (mod(n,5*100) == 0)
     s = num2str(n*dt);
     waitbar(n/Lt,w,['t = ',s,'s']);
     endif
