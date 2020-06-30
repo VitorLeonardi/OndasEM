@@ -11,7 +11,7 @@ x = 0:dx:L;
 S = inputdlg('Valor de S: ','Sample',[1 5]);
 S = str2num(S{1});
 
-if (S > 1)
+if (S > 1) #erro para valores maiores que 1
   S = 1;
 elseif (S < 0.2)
   S = 0.2;
