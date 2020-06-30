@@ -3,7 +3,7 @@
 c = 3e+8;
 
 L = 10;#comprimento
-T = L/c;#tempo total
+T = 0.8*L/c;#tempo total
 
 dx = 1e-2;
 x = 0:dx:L;
