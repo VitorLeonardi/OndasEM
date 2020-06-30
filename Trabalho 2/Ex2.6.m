@@ -44,5 +44,5 @@ for n = 1:Lt
   refreshdata
   drawnow
 endfor
-
+clear
 
