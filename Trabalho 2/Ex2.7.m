@@ -3,7 +3,7 @@
 c = 3e+8;
 
 L = 10;#comprimento
-T = 0.8*L/c;#tempo total
+T = 0.9*L/c;#tempo total
 
 dx = 1e-2;
 x = 0:dx:L;
@@ -22,7 +22,7 @@ Lt = length(t);
 u = zeros(Lt,Lx);
 
 function y = start(k,L,c) #fonte
-  if k < L /(10*c);
+  if k < L /(5*c);
     y = 1;
   else y = 0;
   endif
