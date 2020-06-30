@@ -2,7 +2,7 @@
 
 c = 3e+8;
 
-L = 200;#comprimento
+L = 10;#comprimento
 T = 0.9*L/c;#tempo total
 
 dx = L/150;
