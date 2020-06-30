@@ -31,7 +31,7 @@ hold on
 #plot grafico
 U = u(1,:);
 plot (x, U,'ydatasource','U','color','r');
-plot([0.7*L 0.7*L],[-1.1 1.1],'b');
+plot([0.7*L 0.7*L],[-1.1 1.1],'--b');
 axis([0 L -1.1 1.1]);
 for n = 1:Lt
   U = u(n,:);
