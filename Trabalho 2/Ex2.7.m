@@ -8,8 +8,10 @@ T = L/c;#tempo total
 dx = 1e-2;
 x = 0:dx:L;
 
-S = 1;# S = 1 "magical step"
-
+S = 1;
+# S = 1 "magical step"
+# S = c*dt/dx
+#S = 1, 0.99, 0.5
 dt = S*dx/c; #2.28a
 t = 0:dt:T;
 
@@ -30,7 +32,7 @@ endfunction
 tic
 for n = 3:Lt;
   u(n-1,1) = start(n*dt,L,c);
-  u(n,2:Lx-1) =  u(n-1,3:Lx) - u(n-2,2:Lx-1) + u(n-1,1:Lx-2); #2.17  
+  u(n+1,2:Lx-1) = S**2 *( u(n,3:Lx) - 2*u(n,2:Lx-1) + u(n,1:Lx-2))+ 2*u(n,2:Lx-1) - u(n-1,2:Lx-1); #2.16    
 endfor
 toc
 
