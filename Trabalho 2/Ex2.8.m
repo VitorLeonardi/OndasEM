@@ -4,46 +4,52 @@ c = 3e+8;
 L = 10;#comprimento
 T = 0.9*L/c;#tempo total
 
-dx = 1e-2;
+dx = L/100;
 x = 0:dx:L;
 
-S = inputdlg('Valor de S: ','Sample',[1 5]);
-S = str2num(S{1});
 
-if (S > 1) #erro para valores maiores que 1
-  S = 1;
-elseif (S < 0.2)
-  S = 0.2;
-endif
-
-# S = c*dx/dt
-# S = 1 "magical step" 
-# S = 1, 0.99, 0.5
+S = [0.5 1];
 dt = S*dx/c; #2.28a
-t = 0:dt:T;
 
-Lx = length(x);
-Lt = length(t); 
+Lx =   length(0:dx:L);
+Lt = [length(0:dt(1):T) length(0:dt(2):T)]; 
 
-u = zeros(Lt,Lx);
-function y = start(k,T,c) #fonte
+hold on
+
+function y = start(k,T,c) #fonte pulso gaussiano
   y = exp(-(c*(k-T/3))**2);
 endfunction
 
+for w = [1 2]
+  u = zeros(Lt(w),Lx);
+  for n = 2:Lt(w);
+    u(n,1) = start(n*dt(w),T,c); 
+    u(n+1,2:Lx-1) = S(w)**2 *( u(n,3:Lx) - 2*u(n,2:Lx-1) + u(n,1:Lx-2))+ 2*u(n,2:Lx-1) - u(n-1,2:Lx-1); #2.16  
+  endfor
 
-for n = 2:Lt;
-  u(n,1) = start(n*dt,T,c); 
-  u(n+1,2:Lx-1) = S**2 *( u(n,3:Lx) - 2*u(n,2:Lx-1) + u(n,1:Lx-2))+ 2*u(n,2:Lx-1) - u(n-1,2:Lx-1); #2.16  
-endfor
 
+  #plot grafico
 
-#plot grafico
-U = u(1,:);
-plot (x, U,'ydatasource','U','color','r');
-axis([0 L 1.1*min(min(u)) 1.1*max(max(u))]);
-
-for n = 1:Lt
-  U = u(n,:);
-  refreshdata
-  drawnow
+  if w == 1
+    U1 = u(1,:);
+    plot (x, U1,'ydatasource','U1','color','r');
+    axis([0 L 0 1.1*max(max(u))]);
+    annotation('textbox', [0.3, 0.9, 0.4, 0.4], 'String', ["S = " num2str(S(w))],'color','r');
+    for n = 1:Lt(w)
+      U1 = u(n,:);
+      refreshdata
+      drawnow
+    endfor
+  
+  else
+    U2 = u(1,:);
+    plot (x, U2,'ydatasource','U2','color','b');
+    axis([0 L 0 1.1*max(max(u))]);
+    annotation('textbox', [0.3, 0.8, 0.4, 0.4], 'String', ["S = " num2str(S(w))],'color','b')
+    for n = 1:Lt(w)
+      U2 = u(n,:);
+      refreshdata
+      drawnow
+    endfor
+  endif
 endfor
