@@ -1,7 +1,7 @@
 #ex 2.8
 c = 3e+8;
 
-L = 10;#comprimento
+L = 200;#comprimento
 T = 0.9*L/c;#tempo total
 
 dx = L/100;
