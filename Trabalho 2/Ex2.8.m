@@ -11,7 +11,7 @@ x = 0:dx:L;
 S = [0.5 1];
 dt = S*dx/c; #2.28a
 
-Lx =   length(0:dx:L);
+Lx =   length(x);
 Lt = [length(0:dt(1):T) length(0:dt(2):T)]; 
 
 hold on
