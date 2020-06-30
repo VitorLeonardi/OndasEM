@@ -60,3 +60,4 @@ for w = [1 2]
     endfor
   endif
 endfor
+clear
