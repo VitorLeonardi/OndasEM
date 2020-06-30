@@ -5,11 +5,18 @@ c = 3e+8;
 L = 10;#comprimento
 T = 0.9*L/c;#tempo total
 
-dx = 1e-2;
+dx = 2e-2;
 x = 0:dx:L;
 
 S = inputdlg('Valor de S: ','Sample',[1 5]);
 S = str2num(S{1});
+
+if (S > 1)
+  S = 1;
+elseif (S < 0.2)
+  S = 0.2;
+endif
+
 # S = c*dx/dt
 # S = 1 "magical step" 
 # S = 1, 0.99, 0.5
@@ -29,13 +36,11 @@ function y = start(k,L,c) #fonte
 endfunction
 
 
-
-tic
 for n = 2:Lt;
-  u(n,1) = start(n*dt,L,c);
+  u(n,1) = start(n*dt,L,c); 
   u(n+1,2:Lx-1) = S**2 *( u(n,3:Lx) - 2*u(n,2:Lx-1) + u(n,1:Lx-2))+ 2*u(n,2:Lx-1) - u(n-1,2:Lx-1); #2.16  
 endfor
-toc
+
 
 #plot grafico
 U = u(1,:);
@@ -48,4 +53,3 @@ for n = 1:Lt
   drawnow
 endfor
 clear
-
