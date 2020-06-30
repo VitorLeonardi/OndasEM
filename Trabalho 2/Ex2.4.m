@@ -21,3 +21,6 @@ xlabel("Grid Sampling Density");
 ylabel(y(1),"Attenuation constant( nepers / grid cell )");
 ylabel(y(2),"Numerical phase velocity ( normalized to c ) ");
 
+hold on
+plot([nt nt],[-1 2],'--k');
+
