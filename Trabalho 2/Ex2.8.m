@@ -34,7 +34,7 @@ for w = [1 2]
     U1 = u(1,:);
     plot (x, U1,'ydatasource','U1','color','r');
     axis([0 L 0 1.1*max(max(u))]);
-    annotation('textbox', [0.3, 0.9, 0.4, 0.4], 'String', ["S = " num2str(S(w))],'color','r');
+    annotation('textbox', [0.3, 0.85, 0.07, 0.03], 'String', ["S = " num2str(S(w))],'color','r');
     for n = 1:Lt(w)
       U1 = u(n,:);
       refreshdata
@@ -45,7 +45,7 @@ for w = [1 2]
     U2 = u(1,:);
     plot (x, U2,'ydatasource','U2','color','b');
     axis([0 L 0 1.1*max(max(u))]);
-    annotation('textbox', [0.3, 0.8, 0.4, 0.4], 'String', ["S = " num2str(S(w))],'color','b')
+    annotation('textbox',[0.4, 0.85, 0.07, 0.03], 'String', ["S = " num2str(S(w))],'color','b')
     for n = 1:Lt(w)
       U2 = u(n,:);
       refreshdata
