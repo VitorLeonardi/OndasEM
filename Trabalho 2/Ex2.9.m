@@ -2,16 +2,18 @@
 c = 3e+8;
 
 L = 10;#comprimento
-T = 1.35*L/c;#tempo total
+T = 1.2*L/c;#tempo total
 
 S = [1 0.25];
 
 dt = T/300;
 Lt = length(0:dt:T); 
 
+itr = 0.6*L; #interface
+
 dx = c*dt./S;
-x1 = 0:dx(1):0.7*L;
-x2 = 0.7*L+dx(2):dx(2):L;
+x1 = 0:dx(1):itr;
+x2 = itr+dx(2):dx(2):L;
 
 x = [x1 x2];
 Lx = [length(x1) length(x)];
@@ -31,7 +33,7 @@ hold on
 #plot grafico
 U = u(1,:);
 plot (x, U,'ydatasource','U','color','r');
-plot([0.7*L 0.7*L],[-1.1 1.1],'--b');
+plot([itr itr],[-1.1 1.1],'--b');
 axis([0 L -1.1 1.1]);
 for n = 1:Lt
   U = u(n,:);
