@@ -22,6 +22,8 @@ function y = start(k,T,c) #fonte pulso gaussiano
   y = exp(-(c*(k-T/3))**2);
 endfunction
 
+
+#Equacao de update
 u = zeros(Lt,Lx(2));
 for n = 2:Lt;
   u(n,1) = start(n*dt,T,c); 
