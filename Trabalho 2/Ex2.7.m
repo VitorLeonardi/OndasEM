@@ -26,6 +26,7 @@ hold on
 for w = [1 2]
   u = zeros(Lt(w),Lx);
   for n = 2:Lt(w);
+  #equacao de update
     u(n,1) = start(n*dt(w),L,c) ;
     u(n+1,2:Lx-1) = S(w)**2 *( u(n,3:Lx) - 2*u(n,2:Lx-1) + u(n,1:Lx-2))+ 2*u(n,2:Lx-1) - u(n-1,2:Lx-1); #2.16  
   endfor
