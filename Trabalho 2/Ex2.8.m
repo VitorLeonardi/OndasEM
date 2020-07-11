@@ -29,7 +29,7 @@ for w = [1 2]
   #plot grafico
   if w == 1
     U1 = u(1,:);
-    plot (x, U1,'ydatasource','U1','color','r','linewidth',1.5);
+    h = plot (x, U1,'ydatasource','U1','color','r','linewidth',1.5);
     axis([0 L 0 1.1*max(max(u))]);
     annotation('textbox', [0.3, 0.85, 0.07, 0.03], 'String', ["S = " num2str(S(w))],'color','r','edgecolor','none');
     for n = 1:Lt(w)
@@ -50,5 +50,5 @@ for w = [1 2]
   endif
   
 endfor
-
+saveas(h,"Ex2.8.png","png");
 clear
