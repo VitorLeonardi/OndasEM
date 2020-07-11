@@ -34,7 +34,7 @@ endfor
 hold on
 #plot grafico
 U = u(1,:);
-plot (x, U,'ydatasource','U','color','r');
+h = plot (x, U,'ydatasource','U','color','r');
 plot([itr itr],[-1.1 1.1],'--b');
 axis([0 L -1.1 1.1]);
 for n = 1:Lt
@@ -42,5 +42,5 @@ for n = 1:Lt
   refreshdata
   drawnow
 endfor
-
+saveas(h,"Ex2.9.png","png");
 clear
