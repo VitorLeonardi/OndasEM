@@ -7,7 +7,8 @@ dx = L/150;
 x = 0:dx:L;
 Lx =   length(x);
 
-S = [0.5 1];
+S = [0.5 1]; #exercicio 2.7b
+#S = [0.99 1]; #exercicio 2.7a
 
 dt = S*dx/c; #2.28a
 Lt = [length(0:dt(1):T) length(0:dt(2):T)]; 
