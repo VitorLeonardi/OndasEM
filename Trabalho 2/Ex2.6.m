@@ -11,8 +11,8 @@ Vp = 2*pi./(N.*acos(1+4*(cos(pi./N)-1))); #2.32c , normalizado
 
 Er = (1 - Vp)*100 ;
 
-semilogy(N,Er);
+h = semilogy(N,Er);
 title("S = 1/sqrt(2)");
 xlabel("Grid Sampling Density");
 ylabel("Phase velocity error ( % )");
-
+saveas(h,"Ex2.6.png","png");
