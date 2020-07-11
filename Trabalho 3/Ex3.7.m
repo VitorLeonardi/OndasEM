@@ -7,8 +7,8 @@ u0 = 1.25663706212e-6;   #permeabilidade magnetica do vacuo
 c = 1/sqrt(e0*u0); #velocidade da luz
 
 
-cel = 0; #celdutividade eletrica
-pmg = 0; #perda magnetica
+cel = 0.01; #celdutividade eletrica
+pmg = 0.01; #perda magnetica
 
 L = 1; #tamanho mesh;  lim Ez = 0
 T = 100; #tempo limite
