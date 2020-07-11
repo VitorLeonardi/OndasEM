@@ -79,7 +79,7 @@ title('Ez(x,y) [ V/m ]','fontsize',15)
 colormap(jet(128))
 colorbar('fontsize',12);
 caxis([0.7*Zmin 0.7*Zmax]);
-an = annotation('textbox', [0.1, 0.85, 0, 0], 'String', 't = 0s','color','k','edgecolor','none','fontsize',15,'fontweight','bold');
+an = annotation('textbox', [0.1, 0.85, 0, 0], 'String', 't = 0s','edgecolor','none','fontsize',15,'fontweight','bold');
 
 for n = 1:Lt
   Z = Ez(1:Lx,1:Lx,n);
