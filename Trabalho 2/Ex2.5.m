@@ -7,7 +7,7 @@ nt = 2*pi*S/acos(1-2*S**2); #2.30
 d = 0.001;
 N = nt+d:d:80;
 
-Vp = 2*pi./(N.*acos(1+4*(cos(pi./N)-1))); #2.32c , normalizado
+Vp = 2*pi./(N2.*acos(1+(1/S)**2 *(cos((2*pi*S)./N2)-1))); #2.32c , normalizado
 
 Er = (1 - Vp)*100 ;
 
