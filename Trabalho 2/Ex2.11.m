@@ -17,7 +17,7 @@ function y = start(t) #fonte pulso gaussiano
   y = exp(-(1e8*(t-3e-8))**2)
 endfunction
 hold on
-for w = 1
+for w = [1 2]
   u = zeros(Lt(w),Lx);
   for n = 2:Lt(w);
     #Equacao de update
