@@ -1,15 +1,16 @@
 #3.8
-m = menu('Ez(0,0) = ','sin(1e8*t)','exp(-(1e8*(t-2e-8))**2)','1')
+m = menu('Ez(0,0) = ','sin(2e8*t)','exp(-(1e8*(t-2e-8))**2)','1')
 f = menu('Escolha o campo: ','Ez','Hx','Hy');
-prompt = {'Condutividaded Elétrica = '};
+prompt = {'Condutividaded ElÃ©trica(Cel) = '};
 cel = inputdlg(prompt, "Ex3.8" ,[1 10]);
+cel = str2num(cel{1})
 
 e0 = 8.8541878128e-12;   #permissividade eletrica do vacuo
 u0 = 1.25663706212e-6;   #permeabilidade magnetica do vacuo
 c = 1/sqrt(e0*u0); #velocidade da luz
 pmg = 0; #perda magnetica
 
-L = 15; #tamanho mesh;  lim Ez = 0
+L = 5; #tamanho mesh;  lim Ez = 0
 
 dx = L/50; #dx = dy
 x = -L:dx:L;#preciza conter x = 0
@@ -17,7 +18,7 @@ dt = dx/(sqrt(2)*c);
 
 Lx = length(x); #numero de divisoes espaciais em cada coordenada(x,y)
 
-Lt = 400; #numero de passos temporais
+Lt = 430; #numero de passos temporais
 #constantes da equacoa de update
 Ca = (1 - cel*dt/(2*e0))/(1 + cel*dt/(2*e0)); #3.31a
 Cb = (dt/(e0*dx))/(1 + cel*dt/(2*e0)); #3.31b
@@ -38,7 +39,7 @@ Hy(i,j) = Hy < i*dx , j*dy + 1/2 >
 function y = inicond(t,m)
   switch m
   case 1
-    y = sin(1e8*t);
+    y = sin(2e8*t);
   case 2
     y = exp(-(1e8*(t-2e-8))**2);
   case 3
@@ -84,10 +85,11 @@ xlabel('x[ m ]','fontsize',12,'fontweight','bold');
 ylabel('y[ m ]','fontsize',12,'fontweight','bold');
 
 str1 = {'Ez','Hx','Hy'};
-zlabel([str1{f} '(x,y) [ V/m ]'],'fontsize',12,'fontweight','bold');
 
-str2 = {'sen( 1e8*t )','exp(-(1e8*(t-2e-8))**2)','1'};
-title(['Ez(0,0) = ' str2{m} ' V/m'],'fontsize',15);
+zlabel([str1{f} '(x,y) [ V/m ]'],'fontsize',12,'fontweight','bold');
+str2 = {'sen( 2e8*t )','exp(-(1e8*(t-2e-8))**2)','1'};
+
+title(['Ez(0,0) = ' str2{m} ' V/m; Cel = ' num2str(cel) ],'fontsize',15);
 
 colormap(jet(128))
 colorbar('fontsize',12);
@@ -101,5 +103,6 @@ for n = 1:Lt
   refreshdata
   drawnow
 endfor
-clear
+
 #saveas(h,"Ex3.8.png","png");
+clear
