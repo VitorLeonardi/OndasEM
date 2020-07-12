@@ -38,7 +38,6 @@ for w = 1:3
     case 2
       U2 = u(1,:);
       plot (x, U2,'ydatasource','U2','color','b','linewidth',1.5);
-      axis([0 L 1.1*min(min(u)) 1.1*max(max(u))]);
       annotation('textbox',[0.3, 0.8, 0, 0], 'String', ["n = " num2str(Lt(w))],'color','b','edgecolor','none')
       for n = 1:Lt(w)
         U2 = u(n,:);
@@ -48,7 +47,6 @@ for w = 1:3
     case 3
       U3 = u(1,:);
       plot (x, U3,'ydatasource','U3','color','k','linewidth',1.5);
-      axis([0 L 1.1*min(min(u)) 1.1*max(max(u))]);
       annotation('textbox',[0.3, 0.75, 0, 0], 'String', ["n = " num2str(Lt(w))],'color','k','edgecolor','none')
       for n = 1:Lt(w)
         U3 = u(n,:);
