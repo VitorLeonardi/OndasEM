@@ -9,7 +9,7 @@ Lx = length(x);
 S = 1.0005;
 
 dt = S*dx/c; #2.28a
-Lt = [200 210 220];
+Lt = [220 210 200];
 
 function y = start(t) #fonte pulso gaussiano
   y = exp(-(1.9e8*(t-1.5e-8))**2);
