@@ -1,4 +1,4 @@
-#ex 2.7
+#ex 2.7b
 c = 3e+8;
 L = 10;#comprimento
 T = 0.9*L/c;#tempo total
@@ -8,7 +8,7 @@ x = 0:dx:L;
 Lx =   length(x);
 
 S = [0.5 1]; #exercicio 2.7b
-#S = [0.99 1]; #exercicio 2.7a
+
 
 dt = S*dx/c; #2.28a
 Lt = [length(0:dt(1):T) length(0:dt(2):T)]; 
@@ -56,5 +56,5 @@ for w = [1 2]
   endif
   
 endfor
-saveas(h,"Ex2.7.png","png");
+saveas(h,"Ex2.7b.png","png");
 clear
