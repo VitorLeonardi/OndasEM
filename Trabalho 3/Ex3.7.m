@@ -32,9 +32,6 @@ Hx(i,j) = Hx < i*dx + 1/2 , j*dy >
 Hy(i,j) = Hy < i*dx , j*dy + 1/2 >
 #}
 
-#M
-#J
-
 function y = inicond(t,m)
   switch m
   case 1
