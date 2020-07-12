@@ -25,7 +25,7 @@ Cb = (dt/(e0*dx))/(1 + cel*dt/(2*e0)); #3.31b
 Da = (1 - pmg*dt/(2*u0))/(1 + pmg*dt/(2*u0));#3.32a
 Db = (dt/(u0*dx))/(1 + pmg*dt/(2*u0)); #3.32b
 
-#matrizes para calculos, armazenam apenas os estados atual e anterior
+#matrizes para calculos
 F = Ez = Hx = Hy = zeros(Lx,Lx,Lt);
 #{
 Ez(i,j) = Ez < i*dx + 1/2 , j*dy + 1/2 >
