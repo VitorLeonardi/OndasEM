@@ -1,7 +1,7 @@
 #3.8
 m = menu('Ez(0,0) = ','sin(1e8*t)','exp(-(1e8*(t-2e-8))**2)','1')
 f = menu('Escolha o campo: ','Ez','Hx','Hy');
-prompt = {'Condutividaded Elétrica = '};
+prompt = {'Condutividaded ElÃ©trica = '};
 cel = inputdlg(prompt, "Ex3.8" ,[1 10]);
 
 e0 = 8.8541878128e-12;   #permissividade eletrica do vacuo
@@ -84,10 +84,12 @@ h = surf(X, X', Z ,'zdatasource','Z','cdatasource','Z','edgecolor','none');
 axis([-L L -L L Zmin Zmax]);
 xlabel('x[ m ]','fontsize',12);
 ylabel('y[ m ]','fontsize',12);
-zlabel('H(x,y) [ V/m ]','fontsize',12);
-str1 = {'(0,0) = sen( 1e8*t ) V/m','(0,0) = exp(-(1e8*(t-2e-8))**2) V/m','(0,0) = 1 V/m'};
-str2 = {'Ez','Hx','Hy'};
-title([str2{f} str1{m}],'fontsize',15);
+
+str1 = {'Ez','Hx','Hy'};
+zlabel([str1{f} '(x,y) [ V/m ]'],'fontsize',12);
+
+str2 = {'sen( 1e8*t )','exp(-(1e8*(t-2e-8))**2)','1'};
+title(['Ez(0,0) = ' str2{m} ' V/m'],'fontsize',15);
 
 colormap(jet(128))
 colorbar('fontsize',12);
