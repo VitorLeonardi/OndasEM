@@ -4,7 +4,7 @@ c = 3e+8;
 
 
 dt  = 0.1/c;
-Lx = 200;
+Lx = 220;
 S = ones(1,Lx);
 S(90) = 1.075;
 
@@ -14,7 +14,7 @@ x = cumsum(dx);
 Lt = [200 190];
 
 function y = start(t) #fonte pulso gaussiano
-  y = exp(-(5.5e8*(t-1e-8))**2);
+  y = exp(-(5.55e8*(t-1e-8))**2);
 endfunction
 hold on
 for w = [1 2]
